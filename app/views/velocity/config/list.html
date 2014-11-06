@@ -1,0 +1,70 @@
+<div class="well well-sm">
+  <a ui-sref="velocity.config.details({config_id: 'new', mode: 'new'})" class="btn btn-success text-highlight">
+    <i class="fa fa-plus-circle fa-lg"></i>
+    Add Velocity Metric
+  </a>
+</div>
+<div>
+  <div ng-repeat="config in configs" class="well well-sm">
+    <div class="row">
+      <div class="col-md-4">
+        <div class="well-highlight">
+          <a ui-sref="velocity.config.details({config_id: config.id, mode: 'edit'})">
+            <div class="text-highlight">
+              <div ng-repeat="primary_metric in config.primary_metrics">
+                {{primary_metric}}
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div ng-repeat="aggrigation_config in config.aggregation_configs" class="row">
+          <label class="col-md-6">{{aggrigation_config.secondary_metric}}: </label>
+          <span class="label label-default col-md-6">{{aggrigation_config.aggregation}}</span>
+        </div>
+      </div>
+
+      <div class="col-md-3">
+        <div>
+          <div class="text-highlight well-highlight">
+            <i popover-animation="true" popover-trigger="mouseenter" class="fa fa-user fa-lg"
+               popover="last time updated by {{config.updated_by}}"></i>
+            {{config.updated_by || 'unknown'}}
+          </div>
+          <div class="text-highlight well-highlight">
+            <i popover-animation="true" popover-trigger="mouseenter" class="glyphicon glyphicon-calendar"
+               popover="last time updated on {{config.update_date | date:'medium'}}"></i>
+            {{config.update_date | date:'medium'}}
+          </div>
+          <div class="text-highlight well-highlight">
+            <i popover-animation="true" popover-trigger="mouseenter" class="glyphicon glyphicon-time"
+               popover="metrics period is {{config.period | period}}"></i>
+            {{config.period | period}}
+          </div>
+          <div class="text-highlight well-highlight">
+            <i popover-animation="true" popover-trigger="mouseenter" class="glyphicon glyphicon-fire"
+               popover="metric data will expire in {{config.expires_in | period}}"></i>
+            {{config.expires_in | period}}
+          </div>
+        </div>
+      </div>
+      <div class="col-md-1">
+        <button type="button" class="btn btn-danger btn-lg text-highlight" ng-click="remove(config)"
+                style="margin-top: 10px">
+          <i class="fa fa-trash-o"></i>
+        </button>
+        <a ui-sref="velocity.config.details({config_id: config.id, mode: 'edit'})"
+           class="btn btn-danger btn-lg text-highlight" style="margin-top: 20px">
+          <i class="fa fa-pencil"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="well well-sm">
+  <a ui-sref="velocity.config.details({config_id: 'new', mode: 'new'})" class="btn btn-success text-highlight">
+    <i class="fa fa-plus-circle fa-lg"></i>
+    Add Velocity Metric
+  </a>
+</div>

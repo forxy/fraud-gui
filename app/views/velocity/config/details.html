@@ -1,0 +1,146 @@
+<div>
+  <h1>Velocity Metric Config</h1>
+
+  <form name="velocity_config_form" class="form-horizontal">
+    <div class="well well-sm">
+      <button class="btn btn-small btn-save btn-success text-highlight" ng-disabled="isSaveDisabled()" ng-click="save()">
+        <i class="fa fa-check-circle fa-lg icon-white"></i>
+        Save
+      </button>
+      &nbsp;
+      <button class="btn btn-small btn-default text-highlight" ng-disabled="isCancelDisabled()" ng-click="discard()">
+        <i class="fa fa-ban fa-lg"></i>
+        Discard changes
+      </button>
+    </div>
+
+    <div class="control-group"
+         ng-class="{ 'has-error' : velocity_config_form.primary_metric.$invalid && !velocity_config_form.primary_metric.$pristine }">
+      <label class="control-label">Primary Metrics:</label>
+
+      <div class="controls">
+        <div class="form-control">
+          <ul class="list-inline list-unstyled">
+            <li ng-repeat="metric in velocity_config.primary_metrics track by $index" class="tag-item label label-default">
+              {{metric}}
+              <div class="fa fa-remove" ng-click="velocity_config.primary_metrics.splice($index, 1)"></div>
+            </li>
+            <li class="tag-item input-tag">
+              <input id="primary_metric" name="primary_metric" class="tag-input" autocomplete="off"
+                     placeholder="Metric Code" type="text" ng-model="newMetric"
+                     on-tag-remove="velocity_config.primary_metrics.splice(velocity_config.primary_metrics.length-1, 1)"
+                     on-tag-add="velocity_config.primary_metrics.push(newMetric);newMetric=null;"
+                     typeahead="primary_metric for primary_metric in metrics | filter:$viewValue | limitTo:8"/>
+            </li>
+          </ul>
+        </div>
+
+        <p ng-show="velocity_config_form.primary_metric.$invalid && !velocity_config_form.primary_metric.$pristine"
+           class="help-block">
+          Metric Type is required.
+        </p>
+
+        <p class="help-block">
+          Short metric type code.
+        </p>
+      </div>
+    </div>
+
+    <div class="control-group" ng-init="showPeriodHoursAndMinutes=false">
+      <label class="control-label">Period:
+        <label class="control-label">Hours &amp; Minutes:
+          <input type="checkbox" ng-model="showPeriodHoursAndMinutes">
+        </label>
+      </label>
+
+      <div class="controls">
+
+        <time-selector show-days="true"
+                       show-hours="{{showPeriodHoursAndMinutes}}"
+                       show-minutes="{{showPeriodHoursAndMinutes}}"
+                       timestamp="velocity_config.period"></time-selector>
+
+        <p ng-show="velocity_config_form.period.$invalid && !velocity_config_form.period.$pristine"
+           class="help-block">
+          Metrics aggregation period
+        </p>
+      </div>
+    </div>
+
+    <div class="control-group" ng-init="showExpireHoursAndMinutes=false">
+      <label class="control-label">Expires In:
+        <label class="control-label">Hours &amp; Minutes:
+          <input type="checkbox" ng-model="showExpireHoursAndMinutes">
+        </label>
+      </label>
+
+      <div class="controls">
+
+        <time-selector show-days="true"
+                       show-hours="{{showExpireHoursAndMinutes}}"
+                       show-minutes="{{showExpireHoursAndMinutes}}"
+                       timestamp="velocity_config.expires_in"></time-selector>
+      </div>
+    </div>
+
+    <div class="control-group"
+         ng-class="{ 'has-error' : velocity_config_form.related_metric.$invalid && velocity_config_form.related_metric.$dirty }">
+      <label class="control-label">Related metric:</label>
+
+      <div class="controls row">
+        <div class="col-md-10">
+          <table class="table-hover table-responsive">
+            <thead>
+            <tr>
+              <th class="control-group">
+                <input id="secondary_metric" name="secondary_metric" class="form-control ng-pristine ng-valid"
+                       placeholder="Secondary Metric Code" type="text" ng-model="secondary_metric"
+                       typeahead="secondary_metric for secondary_metric in metrics | filter:$viewValue | limitTo:8"/>
+              </th>
+              <th>
+                <a href="" class="btn fa fa-plus-circle fa-lg" style="color: #5cb85c"
+                   ng-disabled="velocity_config_form.secondary_metric.$invalid || !secondary_metric"
+                   ng-click="velocity_config.aggregation_configs.push({'secondary_metric' : secondary_metric, 'aggregation': 'Count'}); secondary_metric = null"></a>
+              </th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="aggregation_config in velocity_config.aggregation_configs track by $index">
+              <td>
+                <div class="form-inline">
+                  <select class="form-control"
+                          ng-model="aggregation_config.aggregation">
+                    <option value="Count">Count</option>
+                    <option value="UniqueCount">Unique Count</option>
+                    <option value="Avg">Average</option>
+                    <option value="Max">Maximum</option>
+                    <option value="Min">Minimum</option>
+                    <option value="Sum">Sum</option>
+                  </select>
+                  <label>
+                    {{aggregation_config.secondary_metric}}
+                  </label>
+                </div>
+              </td>
+              <td><a href="" class="btn  fa fa-minus-circle fa-lg"
+                     ng-click="velocity_config.aggregation_configs.splice($index, 1)"></a></td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div class="well well-sm control-group">
+      <button class="btn btn-small btn-save btn-success text-highlight" ng-disabled="isSaveDisabled()" ng-click="save()">
+        <i class="fa fa-check-circle fa-lg icon-white"></i>
+        Save
+      </button>
+      &nbsp;
+      <button class="btn btn-small btn-default text-highlight" ng-disabled="isCancelDisabled()" ng-click="discard()">
+        <i class="fa fa-ban fa-lg"></i>
+        Discard changes
+      </button>
+    </div>
+  </form>
+</div>

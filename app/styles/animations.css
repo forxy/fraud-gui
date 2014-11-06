@@ -1,0 +1,70 @@
+.view-content {
+  -webkit-transition: ease-in-out 0.2s;
+  -moz-transition: ease-in-out 0.2s;
+  -o-transition: ease-in-out 0.2s;
+  transition: ease-in-out 0.2s;
+}
+.view-content.ng-enter,
+.view-content.ng-leave-active,
+.ng-hide {
+  opacity: 0;
+  height: 0px;
+}
+.ng-enter-active,
+.ng-leave {
+  opacity: 1;
+}
+.fade-in {
+  background-color: transparent;
+  transition: background-color 600ms;
+}
+.nav-list li:hover .fade-in {
+  background-color: #dddddd;
+}
+.nav-list a:hover {
+  color: #ffffff;
+}
+.text-highlight {
+  color: #333;
+  background-color: #eee;
+}
+.text-highlight i {
+  margin-right: 5px;
+}
+.text-highlight:hover {
+  text-decoration: none;
+  color: #888;
+  background-color: #fff;
+  -webkit-transition: 500ms ease-out all;
+  -moz-transition: 500ms ease-out all;
+  -ms-transition: 500ms ease-out all;
+  -o-transition: 500ms ease-out all;
+  transition: 500ms ease-out all;
+}
+.well-highlight {
+  -webkit-box-shadow: inset 0 1px 1px rgba(3, 3, 3, 0.05);
+  box-shadow: inset 0 1px 1px rgba(3, 3, 3, 0.05);
+  border: 1px solid #e3e3e3;
+  padding: 2px;
+  margin: 4px;
+  border-radius: 3px;
+}
+.well-highlight:hover {
+  -webkit-transition: 500ms ease-out all;
+  -moz-transition: 500ms ease-out all;
+  -ms-transition: 500ms ease-out all;
+  -o-transition: 500ms ease-out all;
+  transition: 500ms ease-out all;
+  border: 1px solid #fff;
+  -webkit-box-shadow: inset 0 1px 1px rgba(8, 8, 8, 0.05);
+  box-shadow: inset 0 1px 1px rgba(8, 8, 8, 0.05);
+}
+.well-highlight a {
+  text-decoration: none;
+}
+.well-highlight a:hover,
+.well-highlight a:visited,
+.well-highlight a:link,
+.well-highlight a:active {
+  text-decoration: none;
+}

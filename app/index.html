@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en" ng-app="fraudAdmin">
+<head>
+  <meta charset="utf-8">
+  <title>Velocity</title>
+  <link rel="stylesheet" href="/bower_components/bootstrap-daterangepicker/daterangepicker-bs3.css"/>
+  <link rel="stylesheet" href="/styles/app.css">
+  <base href="/"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+</head>
+<body ng-controller="AppCtrl">
+<!--[if lt IE 7]>
+<p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
+  your browser</a> to improve your experience.</p>
+<![endif]-->
+
+<div ng-class="{ 'app-aside-folded' : app.settings.asideFolded }" ui-view></div>
+
+<!--[if lt IE 9]>
+<script src="bower_components/es5-shim/es5-shim.js"></script>
+<script src="bower_components/json3/lib/json3.min.js"></script>
+<![endif]-->
+<script src="bower_components/jquery/dist/jquery.js"></script>
+<script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+<script src="bower_components/json3/lib/json3.js"></script>
+<script src="bower_components/angular/angular.js"></script>
+<script src="bower_components/angular-route/angular-route.js"></script>
+<script src="bower_components/angular-cookies/angular-cookies.js"></script>
+<script src="bower_components/angular-animate/angular-animate.js"></script>
+<!--<script src="bower_components/angular-loader/angular-loader.js"></script>-->
+<!--<script src="bower_components/angular-scenario/angular-scenario.js"></script>-->
+<!--<script src="bower_components/angular-touch/angular-touch.js"></script>-->
+<script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+<script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+<script src="bower_components/restangular/dist/restangular.js"></script>
+<script src="bower_components/ngstorage/ngStorage.js"></script>
+<script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+<script src="bower_components/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+<script src="bower_components/angular-mousewheel/mousewheel.js"></script>
+<script src="bower_components/hamsterjs/hamster.js"></script>
+<script src="bower_components/angular-virtual-scroll/angular-virtual-scroll.js"></script>
+<!--<script src="bower_components/angular-strap/dist/angular-strap.min.js"></script>
+<script src="bower_components/angular-strap/dist/angular-strap.tpl.min.js"></script>-->
+<script src="bower_components/lodash/dist/lodash.js"></script>
+<script src="bower_components/lodash/dist/lodash.compat.js"></script>
+<script src="bower_components/lodash/dist/lodash.underscore.js"></script>
+<script src="bower_components/ngInfiniteScroll/build/ng-infinite-scroll.js"></script>
+
+<script src="bower_components/moment/moment.js"></script>
+<script src="bower_components/bootstrap-daterangepicker/daterangepicker.js"></script>
+<script src="bower_components/angular-daterangepicker/js/angular-daterangepicker.js"></script>
+<script src="bower_components/eonasdan-bootstrap-datetimepicker/src/js/bootstrap-datetimepicker.js"></script>
+
+<script src="scripts/app.js"></script>
+<script src="scripts/controllers/common.js"></script>
+<script src="scripts/controllers/blacklist.js"></script>
+<script src="scripts/controllers/velocity.js"></script>
+<script src="scripts/services/config.js"></script>
+<script src="scripts/services/blacklist.js"></script>
+<script src="scripts/services/velocity.js"></script>
+<script src="scripts/directives/date-pagination.js"></script>
+<script src="scripts/directives/date-time-picker.js"></script>
+<script src="scripts/directives/date-range-picker.js"></script>
+<script src="scripts/directives/form-auto-fill-fix.js"></script>
+<script src="scripts/directives/on-blur-change.js"></script>
+<script src="scripts/directives/on-enter-blur.js"></script>
+<script src="scripts/directives/on-scroll.js"></script>
+<script src="scripts/directives/sort-by.js"></script>
+<script src="scripts/directives/tags-support.js"></script>
+<script src="scripts/directives/time-selector.js"></script>
+<script src="scripts/filters.js"></script>
+<script src="scripts/utils/time.js"></script>
+</body>
+</html>
+
+
