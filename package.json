@@ -1,7 +1,12 @@
 {
   "name": "fraudgui",
   "version": "0.0.0",
-  "dependencies": {},
+  "dependencies": {
+    "connect-modrewrite": "^0.7.9",
+    "jshint-stylish": "^1.0.0",
+    "load-grunt-tasks": "^1.0.0",
+    "time-grunt": "^1.0.0"
+  },
   "devDependencies": {
     "connect-modrewrite": "^0.7.9",
     "grunt": "^0.4.5",
